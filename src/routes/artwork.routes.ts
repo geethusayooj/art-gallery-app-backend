@@ -6,10 +6,10 @@ const router = Router();
 
 // CREATE: Add a new artwork
 router.post('/artworks', (req: Request, res: Response) => {
-  const { title, artistId, year, price } = req.body;
+  const { title, artistId, year, price, imageUrl } = req.body;
 
   prisma.artwork.create({ 
-    data: { title, artistId, year, price } 
+    data: { title, artistId, year, price, imageUrl } 
   })
     .then((response: any) => res.status(201).json(response))
     .catch((error: Error) => {
@@ -48,11 +48,11 @@ router.get('/artworks/:id', (req: Request, res: Response) => {
 
 // UPDATE: Update an artwork by ID
 router.put('/artworks/:id', (req: Request, res: Response) => {
-  const { title, artistId, year, price, status } = req.body;
+  const { title, artistId, year, price, status, imageUrl } = req.body;
 
   prisma.artwork.update({
     where: { id: req.params.id },
-    data: { title, artistId, year, price},
+    data: { title, artistId, year, price, imageUrl},
   })
     .then((updatedArtwork: any) => res.status(200).json(updatedArtwork))
     .catch((error: Error) => {
