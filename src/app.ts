@@ -15,7 +15,7 @@ import configMiddleware from "./config";
 configMiddleware(app);
 
 // 👇 Start handling routes here
-import indexRoutes from "../src/routes/index.routes";
+import indexRoutes from "./routes/index.routes";
 app.use("/api", indexRoutes);
 
 // Add artwork routes
