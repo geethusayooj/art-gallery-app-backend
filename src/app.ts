@@ -27,7 +27,7 @@ import artistRoutes from "./routes/artist.routes";
 app.use("/api", artistRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-import errorHandling from "../src/error-handling/index";
+import errorHandling from "./error-handling";
 errorHandling(app);
 
 export default app;
